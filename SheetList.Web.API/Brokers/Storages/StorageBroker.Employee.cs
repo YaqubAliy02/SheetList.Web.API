@@ -10,11 +10,8 @@ namespace SheetList.Web.API.Brokers.Storages
         public async ValueTask<Employee> InsertEmployeeAsync(Employee Employee) =>
            await InsertAsync(Employee);
 
-        public async ValueTask<IQueryable<Employee>> SelectAllEmployeesAsync() =>
+        public async ValueTask<IQueryable<Employee>> SelectAllEmployees() =>
             await SelectAllAsync<Employee>();
-
-        public async ValueTask<Employee> SelectEmployeeByIdAsync(Guid EmployeeId) =>
-            await SelectAsync<Employee>(EmployeeId);
 
         public async ValueTask<Employee> UpdateEmployeeAsync(Employee Employee) =>
             await UpdateAsync(Employee);
