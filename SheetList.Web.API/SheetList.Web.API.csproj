@@ -22,4 +22,8 @@
     <PackageReference Include="Xeption" Version="2.8.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Foundations\" />
+  </ItemGroup>
+
 </Project>

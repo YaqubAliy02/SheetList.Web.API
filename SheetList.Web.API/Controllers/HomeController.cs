@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace SheetList.Web.API.Controllers
+namespace ODS.Web.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class HomeController : ControllerBase
+    [Route("api/[controller]")]
+    public class EmployeeController : ControllerBase
     {
-      [HttpGet]
-      public ActionResult<string> Get() => 
-            Ok("Welcome to this project");
+        [HttpGet]
+        public ActionResult Get() => Ok("Welcome to my project");
     }
 }

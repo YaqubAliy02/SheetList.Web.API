@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Extensions.Logging;
+
 namespace SheetList.Web.API.Brokers.Loggings
 {
     public class LoggingBroker : ILoggingBroker
@@ -14,8 +16,8 @@ namespace SheetList.Web.API.Brokers.Loggings
         public void LogDebug(string message) =>
             this.logger.LogDebug(message);
 
-        public void LogError(string message) =>
-            this.logger.LogError(message);
+        public void LogError(Exception exception) =>
+            this.logger.LogError(exception, exception.Message);
 
         public void LogInformation(string message) =>
             this.logger.LogInformation(message);

@@ -1,4 +1,3 @@
-
 using SheetList.Web.API.Brokers.Loggings;
 using SheetList.Web.API.Brokers.Storages;
 using SheetList.Web.API.Services.Foundations.Employees;
@@ -17,7 +16,6 @@ namespace SheetList.Web.API
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<IStorageBroker, StorageBroker>();
             builder.Services.AddTransient<ILoggingBroker, LoggingBroker>();
-            builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 
             var app = builder.Build();
 
