@@ -14,7 +14,7 @@ namespace SheetList.Web.API.Brokers.Blobs
             var blobServiceClient = new BlobServiceClient(blobConnectionString);
             var blobContainerClient = blobServiceClient.GetBlobContainerClient(fileContainerName);
             var blobItems = blobContainerClient.GetBlobsAsync();
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            var allowedExtensions = new[] { ".xls", ".xlsx" };
 
             var files = new List<FileMetadata>();
 
