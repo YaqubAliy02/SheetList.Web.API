@@ -4,12 +4,10 @@ namespace SheetList.Web.API.Services.Foundations
 {
     public class FileService : IFileService
     {
-        private readonly IFileService fileService;
         private readonly IBlobBroker blobBroker;
 
-        public FileService(IFileService fileService, IBlobBroker blobBroker)
+        public FileService(IBlobBroker blobBroker)
         {
-            this.fileService = fileService;
             this.blobBroker = blobBroker;
         }
 

@@ -1,5 +1,7 @@
+using SheetList.Web.API.Brokers.Blobs;
 using SheetList.Web.API.Brokers.Loggings;
 using SheetList.Web.API.Brokers.Storages;
+using SheetList.Web.API.Services.Foundations;
 
 namespace SheetList.Web.API
 {
@@ -15,7 +17,8 @@ namespace SheetList.Web.API
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<IStorageBroker, StorageBroker>();
             builder.Services.AddTransient<ILoggingBroker, LoggingBroker>();
-
+            builder.Services.AddTransient<IBlobBroker, BlobBroker>();
+            builder.Services.AddTransient<IFileService, FileService>();
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

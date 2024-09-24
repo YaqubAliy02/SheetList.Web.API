@@ -4,9 +4,9 @@ namespace SheetList.Web.API.Brokers.Storages
 {
     public partial interface IStorageBroker
     {
-        ValueTask<FileMetadata> InsertFileMetadataAsync(FileMetadata fileMetadata);
-        ValueTask<IQueryable<FileMetadata>> SelectAllFileMetadatas();
-        ValueTask<FileMetadata> UpdateFileMetadataAsync(FileMetadata fileMetadata);
-        ValueTask<FileMetadata> DeleteFileMetadataAsync(FileMetadata fileMetadata);
+        ValueTask<FileData> InsertFileMetadataAsync(FileData fileData);
+        ValueTask<IQueryable<FileData>> SelectAllFileMetadatas();
+        ValueTask<FileData> UpdateFileMetadataAsync(FileData fileData);
+        ValueTask<FileData> DeleteFileMetadataAsync(FileData fileData);
     }
 }

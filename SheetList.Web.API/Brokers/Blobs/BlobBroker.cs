@@ -2,7 +2,7 @@
 
 namespace SheetList.Web.API.Brokers.Blobs
 {
-    public partial class BlobBroker
+    public partial class BlobBroker : IBlobBroker
     {
         private readonly string blobConnectionString;
         private readonly string fileContainerName;

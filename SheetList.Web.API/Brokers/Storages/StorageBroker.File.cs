@@ -5,18 +5,18 @@ namespace SheetList.Web.API.Brokers.Storages
 {
     public partial class StorageBroker
     {
-        public DbSet<FileMetadata> FileMetadatas { get; set; }
+        public DbSet<FileData> Files { get; set; }
 
-        public async ValueTask<FileMetadata> InsertFileMetadataAsync(FileMetadata fileMetadata) =>
-           await InsertAsync(fileMetadata);
+        public async ValueTask<FileData> InsertFileMetadataAsync(FileData fileData) =>
+           await InsertAsync(fileData);
 
-        public async ValueTask<IQueryable<FileMetadata>> SelectAllFileMetadatas() =>
-            await SelectAllAsync<FileMetadata>();
+        public async ValueTask<IQueryable<FileData>> SelectAllFileMetadatas() =>
+            await SelectAllAsync<FileData>();
 
-        public async ValueTask<FileMetadata> UpdateFileMetadataAsync(FileMetadata fileMetadata) =>
-            await UpdateAsync(fileMetadata);
+        public async ValueTask<FileData> UpdateFileMetadataAsync(FileData fileData) =>
+            await UpdateAsync(fileData);
 
-        public async ValueTask<FileMetadata> DeleteFileMetadataAsync(FileMetadata fileMetadata) =>
-            await DeleteAsync(fileMetadata);
+        public async ValueTask<FileData> DeleteFileMetadataAsync(FileData fileData) =>
+            await DeleteAsync(fileData);
     }
 }
