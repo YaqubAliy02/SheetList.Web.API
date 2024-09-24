@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SheetList.Web.API.Models;
 
 namespace SheetList.Web.API.Brokers.Storages
 {
@@ -33,14 +34,15 @@ namespace SheetList.Web.API.Brokers.Storages
             return @object;
         }
 
-        private async ValueTask<T> DeleteAsync<T>(T @object)
+        private async ValueTask<T> DeleteAsync<T>(Guid id) where T : class
         {
-            this.Entry(@object).State = EntityState.Deleted;
+            var entity = await this.Set<T>().FindAsync(id);
+            this.Entry(entity).State = EntityState.Deleted;
             await this.SaveChangesAsync();
 
-            return @object;
+            return entity;
         }
-
+                                                                    
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);

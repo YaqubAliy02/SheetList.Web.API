@@ -8,6 +8,6 @@ namespace SheetList.Web.API.Brokers.Storages
         ValueTask<IQueryable<FileData>> SelectAllFileDatas();
         ValueTask<FileData> SelectFileDataByIdAsync(Guid id);
         ValueTask<FileData> UpdateFileDataAsync(FileData fileData);
-        ValueTask<FileData> DeleteFileDataAsync(FileData fileData);
+        ValueTask<FileData> DeleteFileDataAsync(Guid fileDataId);
     }
 }

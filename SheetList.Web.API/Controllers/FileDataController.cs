@@ -29,7 +29,7 @@ namespace SheetList.Web.API.Controllers
             FileData postedFileData = await this.fileDataService.AddFileDataAsync(fileData);
 
             return Ok(postedFileData);
-        } 
+        }
 
         [HttpPut("[action]")]
         public async ValueTask<ActionResult<FileData>> PutFileDataAsync(FileData fileData)
@@ -37,6 +37,19 @@ namespace SheetList.Web.API.Controllers
             FileData modifiedFileData = await this.fileDataService.UpdateFileDataAsync(fileData);
 
             return Ok(modifiedFileData);
+        }
+
+        [HttpDelete("[action]")]
+        public async ValueTask<ActionResult<FileData>> DeleteFileDataById(Guid filedataId)
+        {
+            FileData mightBeDeleteFileData = await this.fileDataService.GetFileDataByIdAsync(filedataId);
+
+            if (mightBeDeleteFileData is not null)
+            {
+                FileData modifiedFileData = await this.fileDataService.DeleteFileDataAsync(filedataId);
+                return Ok($"{modifiedFileData.FileName} file is deleted successfully");
+            }
+            return Ok($"{mightBeDeleteFileData.FileName} is not exist!!!");
         }
     }
 }

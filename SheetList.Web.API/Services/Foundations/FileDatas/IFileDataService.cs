@@ -4,11 +4,11 @@ namespace SheetList.Web.API.Services.Foundations.FileDatas
 {
     public interface IFileDataService
     {
-        Task<FileData> AddFileDataAsync(FileData data);
+        Task<FileData> AddFileDataAsync(FileData fileData);
         Task<IQueryable<FileData>> GetAllFileDataAsync();
-        Task<FileData> UpdateFileDataAsync(FileData data);
-        Task<FileData> DeleteFileDataAsync(FileData data);
-        Task<FileData> GetFileDataByIdAsync(Guid id);
+        Task<FileData> UpdateFileDataAsync(FileData fileData);
+        Task<FileData> DeleteFileDataAsync(Guid fileData);
+        Task<FileData> GetFileDataByIdAsync(Guid fileId);
 
     }
 }

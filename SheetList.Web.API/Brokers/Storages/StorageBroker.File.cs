@@ -13,13 +13,13 @@ namespace SheetList.Web.API.Brokers.Storages
         public async ValueTask<IQueryable<FileData>> SelectAllFileDatas() =>
             await SelectAllAsync<FileData>();
 
-        public async ValueTask<FileData> SelectFileDataByIdAsync(Guid id) =>
-            await SelectAsync<FileData>(id);
+        public async ValueTask<FileData> SelectFileDataByIdAsync(Guid fileDataId) =>
+            await SelectAsync<FileData>(fileDataId);
 
         public async ValueTask<FileData> UpdateFileDataAsync(FileData fileData) =>
             await UpdateAsync(fileData);
 
-        public async ValueTask<FileData> DeleteFileDataAsync(FileData fileData) =>
-            await DeleteAsync(fileData);
+        public async ValueTask<FileData> DeleteFileDataAsync(Guid fileDataId) =>
+            await DeleteAsync<FileData>(fileDataId);
     }
 }
