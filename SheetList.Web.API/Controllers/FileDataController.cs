@@ -22,5 +22,13 @@ namespace SheetList.Web.API.Controllers
 
             return Ok(gettingAllFileDatas);
         }
+
+        [HttpPost("[action]")]
+        public async ValueTask<ActionResult<FileData>> PostFileDataAsync(FileData fileData)
+        {
+            FileData postedFileData = await this.fileDataService.AddFileDataAsync(fileData);
+
+            return Ok(postedFileData);
+        }
     }
 }
