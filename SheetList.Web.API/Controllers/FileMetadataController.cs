@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SheetList.Web.API.Models;
-using SheetList.Web.API.Services.Foundations;
+using SheetList.Web.API.Services.Foundations.ExcelFile;
+using SheetList.Web.API.Services.Orchestrations.Empoyees;
 
 namespace ODS.Web.Controllers
 {
@@ -9,10 +10,13 @@ namespace ODS.Web.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IFileService fileService;
+        private readonly IEmployeeOrchestrationService employeeOrchestrationService;
 
-        public EmployeeController(IFileService fileService)
+        public EmployeeController(IFileService fileService,
+            IEmployeeOrchestrationService employeeOrchestrationService)
         {
             this.fileService = fileService;
+            this.employeeOrchestrationService = employeeOrchestrationService;
         }
 
         [HttpPost("[action]")]
@@ -71,6 +75,18 @@ namespace ODS.Web.Controllers
             }
         }
 
+
+        [HttpGet("extract")]
+        public async Task<IActionResult> ExtractData([FromQuery] string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                return BadRequest("Blob path is missing.");
+            }
+
+            var extractedData = await this.employeeOrchestrationService.ExcelDataAsync(fileName);
+            return Ok(extractedData);
+        }
         private bool ValidateEBook(IFormFile file)
         {
             var allowedExtensions = new[] { ".xls", ".xlsx" };

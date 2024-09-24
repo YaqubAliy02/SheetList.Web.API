@@ -1,4 +1,4 @@
-﻿namespace SheetList.Web.API.Services.Foundations
+﻿namespace SheetList.Web.API.Services.Foundations.ExcelFile
 {
     public interface IFileService
     {

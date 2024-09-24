@@ -1,7 +1,10 @@
 using SheetList.Web.API.Brokers.Blobs;
 using SheetList.Web.API.Brokers.Loggings;
 using SheetList.Web.API.Brokers.Storages;
-using SheetList.Web.API.Services.Foundations;
+using SheetList.Web.API.Services.Foundations.ExcelFile;
+using SheetList.Web.API.Services.Foundations.FileDatas;
+using SheetList.Web.API.Services.Orchestrations.Empoyees;
+using SheetList.Web.API.Services.Processings.Empoyees;
 
 namespace SheetList.Web.API
 {
@@ -19,6 +22,9 @@ namespace SheetList.Web.API
             builder.Services.AddTransient<ILoggingBroker, LoggingBroker>();
             builder.Services.AddTransient<IBlobBroker, BlobBroker>();
             builder.Services.AddTransient<IFileService, FileService>();
+            builder.Services.AddTransient<IEmployeeProcessingService, EmployeeProcessingService>();
+            builder.Services.AddTransient<IEmployeeOrchestrationService, EmployeeOrchestrationService>();
+            builder.Services.AddScoped<IFileDataService, FileDataService>();
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

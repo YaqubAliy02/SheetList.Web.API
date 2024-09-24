@@ -41,7 +41,7 @@ namespace SheetList.Web.API.Brokers.Blobs
             return files;
         }
 
-        public async Task<Stream> DownloadEbookAsync(string fileName)
+        public async Task<Stream> DownloadFileAsync(string fileName)
         {
             var blobServiceClient = new BlobServiceClient(blobConnectionString);
             var blobContainerClient = blobServiceClient.GetBlobContainerClient(fileContainerName);
