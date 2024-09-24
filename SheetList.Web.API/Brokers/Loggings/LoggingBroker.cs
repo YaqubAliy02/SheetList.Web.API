@@ -1,7 +1,4 @@
-﻿
-using Microsoft.Extensions.Logging;
-
-namespace SheetList.Web.API.Brokers.Loggings
+﻿namespace SheetList.Web.API.Brokers.Loggings
 {
     public class LoggingBroker : ILoggingBroker
     {

@@ -6,7 +6,7 @@ namespace SheetList.Web.API.Brokers.Blobs
     {
         private readonly string blobConnectionString;
         private readonly string fileContainerName;
-        private readonly HashSet<string> fileExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".xls", ".xlsx"};
+        private readonly HashSet<string> fileExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".xls", ".xlsx" };
 
         public BlobBroker(IConfiguration configuration)
         {

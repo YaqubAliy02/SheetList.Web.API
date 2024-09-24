@@ -1,5 +1,5 @@
-﻿using Azure.Storage.Blobs.Models;
-using Azure.Storage.Blobs;
+﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using SheetList.Web.API.Models;
 
 namespace SheetList.Web.API.Brokers.Blobs

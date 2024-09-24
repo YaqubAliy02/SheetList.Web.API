@@ -59,7 +59,7 @@ namespace ODS.Web.Controllers
                 {
                     ".xls" => "application/vnd.ms-excel",
                     ".xlsx" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                    _ => throw new Exception("Only Excel files (.xls, .xlsx) are supported.") 
+                    _ => throw new Exception("Only Excel files (.xls, .xlsx) are supported.")
                 };
 
 
