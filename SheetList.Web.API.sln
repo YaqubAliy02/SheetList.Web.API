@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetList.Web.API", "SheetList.Web.API\SheetList.Web.API.csproj", "{C31E5A49-2695-407F-ACE8-E4EAF694381A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SheetList.Web.API", "SheetList.Web.API\SheetList.Web.API.csproj", "{C31E5A49-2695-407F-ACE8-E4EAF694381A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetList.API.Infrastructure.Build", "SheetList.API.Infrastructure.Build\SheetList.API.Infrastructure.Build.csproj", "{E33EE2E7-D332-4FC7-A709-95DDE52993BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SheetList.API.Infrastructure.Build", "SheetList.API.Infrastructure.Build\SheetList.API.Infrastructure.Build.csproj", "{E33EE2E7-D332-4FC7-A709-95DDE52993BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetList.Web.API.Unit.Test", "SheetList.Web.API.Unit.Test\SheetList.Web.API.Unit.Test.csproj", "{1F4A6889-90D6-4F4F-86EE-7D00CDB6CAAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SheetList.Web.API.Unit.Test", "SheetList.Web.API.Unit.Test\SheetList.Web.API.Unit.Test.csproj", "{1F4A6889-90D6-4F4F-86EE-7D00CDB6CAAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetList.Web", "SheetList.Web\SheetList.Web.csproj", "{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{1F4A6889-90D6-4F4F-86EE-7D00CDB6CAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F4A6889-90D6-4F4F-86EE-7D00CDB6CAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F4A6889-90D6-4F4F-86EE-7D00CDB6CAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
