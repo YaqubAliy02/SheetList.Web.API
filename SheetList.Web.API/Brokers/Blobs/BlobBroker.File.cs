@@ -40,5 +40,22 @@ namespace SheetList.Web.API.Brokers.Blobs
             }
             return files;
         }
+
+        public async Task<Stream> DownloadEbookAsync(string fileName)
+        {
+            var blobServiceClient = new BlobServiceClient(blobConnectionString);
+            var blobContainerClient = blobServiceClient.GetBlobContainerClient(fileContainerName);
+            var blobClient = blobContainerClient.GetBlobClient(fileName);
+
+            var exists = await blobClient.ExistsAsync();
+
+            if (!exists)
+            {
+                throw new FileNotFoundException($"E-book with filename '{fileName}' does not exist.");
+            }
+
+            BlobDownloadInfo download = await blobClient.DownloadAsync();
+            return download.Content;
+        }
     }
 }
