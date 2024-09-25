@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SheetList.API.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SheetList.Web.API.Unit.Test", "SheetList.Web.API.Unit.Test\SheetList.Web.API.Unit.Test.csproj", "{1F4A6889-90D6-4F4F-86EE-7D00CDB6CAAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetList.Web", "SheetList.Web\SheetList.Web.csproj", "{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SheetList.Web", "SheetList.Web\SheetList.Web.csproj", "{6FF7F2D6-B90B-4E4A-8342-0DCBA56959CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

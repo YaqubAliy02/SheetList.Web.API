@@ -23,6 +23,14 @@ namespace SheetList.Web.API.Controllers
             return Ok(gettingAllFileDatas);
         }
 
+        [HttpGet("[action]")]
+        public async Task<ActionResult> GetFileDataByIdAsync(Guid id)
+        {
+            var getFileDataByIdAsync = await this.fileDataService.GetFileDataByIdAsync(id);
+            
+            return Ok(getFileDataByIdAsync);
+        }
+
         [HttpPost("[action]")]
         public async ValueTask<ActionResult<FileData>> PostFileDataAsync(FileData fileData)
         {

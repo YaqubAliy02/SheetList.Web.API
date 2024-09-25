@@ -3,7 +3,7 @@ using SheetList.Web.API.Models;
 using SheetList.Web.API.Services.Foundations.ExcelFile;
 using SheetList.Web.API.Services.Orchestrations.Empoyees;
 
-namespace ODS.Web.Controllers
+namespace SheetList.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -20,7 +20,7 @@ namespace ODS.Web.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> UploadEBook(IFormFile file)
+        public async Task<IActionResult> UploadFile(IFormFile file)
         {
             if (file is null || !ValidateEBook(file))
             {
@@ -29,7 +29,7 @@ namespace ODS.Web.Controllers
             using var stream = file.OpenReadStream();
             var blobUri = await this.fileService.AddFileAsync(stream, file.FileName, file.ContentType);
 
-            var eBook = new FileMetadata
+            var fileMetadata = new FileMetadata
             {
                 Id = Guid.NewGuid(),
                 FileName = file.FileName,
@@ -39,17 +39,17 @@ namespace ODS.Web.Controllers
                 UploadedDate = DateTime.UtcNow,
             };
 
-            return Ok(eBook);
+            return Ok(fileMetadata);
         }
 
-        [HttpGet("download/{fileName}")]
-        public async Task<IActionResult> DownloadEbook(string fileName)
+        [HttpGet("[action]")]
+        public async Task<IActionResult> DownloadFile(string fileName)
         {
             try
             {
-                var ebookStream = await this.fileService.DownloadFileAsync(fileName);
+                var fileStream = await this.fileService.DownloadFileAsync(fileName);
 
-                if (ebookStream == null)
+                if (fileStream == null)
                 {
                     return NotFound();
                 }
@@ -63,20 +63,20 @@ namespace ODS.Web.Controllers
                 };
 
 
-                return File(ebookStream, contentType, fileName);
+                return File(fileStream, contentType, fileName);
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException exception)
             {
-                return NotFound(ex.Message);
+                return NotFound(exception.Message);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, $"Internal server error: {exception.Message}");
             }
         }
 
 
-        [HttpGet("extract")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> ExtractData([FromQuery] string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))

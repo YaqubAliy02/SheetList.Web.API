@@ -1,0 +1,61 @@
+﻿@page "/files/{id}"
+@using SheetList.Web.Models
+@using SheetList.Web.Models.DTOs
+@inject HttpClient HttpClient
+<h3>ExtractFile</h3>
+@if (fileData is not null)
+{
+    <div class="container-fluid">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">FullName</th>
+                    <th scope="col">PhoneNumber</th>
+                    <th scope="col">Job</th>
+                </tr>
+            </thead>
+            @foreach (var data in extractFile)
+            {
+                <tbody>
+                    <tr>
+                        <td>@data.FullName</td>
+                        <td>@data.PhoneNumber</td>
+                        <td>@data.Job</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+
+    <a href="/files" class="btn btn-primary">Back</a>
+}
+else
+{
+    <p><i>Loading...</i></p>
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    GetAllFileDTO fileData;
+    List<ExcelRowData> extractFile = new List<ExcelRowData>();
+    protected override async Task OnParametersSetAsync()
+    {
+        try
+        {
+            fileData = await HttpClient.GetFromJsonAsync<GetAllFileDTO>($"/api/FileData/GetFileDataById?id={this.Id}");
+            if (fileData is not null)
+            {
+                var blobPath = fileData.BlobPath;
+                var getFileName = Path.GetFileName(blobPath);
+                extractFile = await HttpClient.GetFromJsonAsync<List<ExcelRowData>>($"/api/Employee/ExtractData?fileName={getFileName}");
+            }
+
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception.Message);
+        }
+    }
+}
