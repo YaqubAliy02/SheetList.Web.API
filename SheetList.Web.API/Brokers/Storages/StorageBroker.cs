@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SheetList.Web.API.Models;
 
 namespace SheetList.Web.API.Brokers.Storages
 {
@@ -42,7 +41,7 @@ namespace SheetList.Web.API.Brokers.Storages
 
             return entity;
         }
-                                                                    
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);

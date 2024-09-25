@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-
-namespace SheetList.Web.Models.DTOs
+﻿namespace SheetList.Web.Models.DTOs
 {
     public class GetAllFileDTO
     {

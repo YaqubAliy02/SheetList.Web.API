@@ -27,7 +27,7 @@ namespace SheetList.Web.API.Controllers
         public async Task<ActionResult> GetFileDataByIdAsync(Guid id)
         {
             var getFileDataByIdAsync = await this.fileDataService.GetFileDataByIdAsync(id);
-            
+
             return Ok(getFileDataByIdAsync);
         }
 
