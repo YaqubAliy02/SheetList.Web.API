@@ -24,15 +24,19 @@
     @foreach (var file in getAllFiles)
     {
         <a href="@($"/files/{file.Id}")" style="text-decoration:none; color:inherit;">
-        <div class="container mb-1">
-            <div class="col-8">
-                <ul class="list-group">
-                    <li class="list-group-item" style="font-size: 30px;">@file.FileName</li>
-                </ul>
+            <div class="container mb-1">
+                <div class="col-8">
+                    <ul class="list-group">
+                        <li class="list-group-item" style="font-size: 30px;">
+                            @file.FileName
+
+                            <button class="btn btn-warning" style="margin-left:595px;">Update</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
         </a>
     }
     <a href="/" class="btn btn-primary">Back</a>
-
 }

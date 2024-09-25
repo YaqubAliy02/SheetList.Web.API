@@ -2,6 +2,7 @@
 @using SheetList.Web.Models
 @using SheetList.Web.Models.DTOs
 @inject HttpClient HttpClient
+@inject NavigationManager NavigationManager;
 <h3>ExtractFile</h3>
 @if (fileData is not null)
 {
@@ -29,6 +30,8 @@
     </div>
 
     <a href="/files" class="btn btn-primary">Back</a>
+    <button class="btn btn-primary" @onclick="DownloadExcelFile">Download</button>
+
 }
 else
 {
@@ -57,5 +60,13 @@ else
         {
             Console.WriteLine(exception.Message);
         }
+    }
+    
+    private async Task DownloadExcelFile()
+    {
+        var blobPath = fileData.BlobPath;
+        var getFileName = Path.GetFileName(blobPath);
+        var url = $"/api/Employee/DownloadFile?fileName={getFileName}";
+        NavigationManager.NavigateTo(url, forceLoad: true);
     }
 }
